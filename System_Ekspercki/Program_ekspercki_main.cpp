@@ -11,6 +11,9 @@ bool kontrola_poprawnosci_danych();	//zwraca true jak wprowadzono poprawne dane,
 void przedstaw_mozliwosci (int);
 
 int main(){
+	Baza_danych cala_baza_danych;
+	Baza_danych baza_danych_klienta;
+
 
 	//krok 1 ze schematu blokowego - wyjasnij cel programu
 	cout << "Witaj w systemie eksperckim dotyczacym Projektowania Wnetrz." << endl;
@@ -21,9 +24,12 @@ int main(){
 	cout << "Im wiecej danych poda uzytkownik, tym bardziej precyzyjna oferta zostanie dobrana." << endl;
 
 	//
-	int odpowiedz=zadaj_pytanie();
+	int odpowiedz = 0;
+	do{
+		odpowiedz = zadaj_pytanie();
+	} while (odpowiedz != 0);
 
-
+	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
 
 	cout << endl << endl << "Koniec programu." << endl;
 	return 0;
@@ -33,7 +39,7 @@ int main(){
 //// cia³a funkcji
 
 int zadaj_pytanie(){
-	Baza_danych baza_danych;
+	
 	int odpowiedz;
 	cout << endl << "Oto lista parametrow, ktore mozesz podac: " << endl;
 	cout << "1 - kolor wystroju" << endl;
