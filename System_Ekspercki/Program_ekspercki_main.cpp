@@ -20,22 +20,31 @@ int main(){
 
 	//pierwsze pytanie do u¿ytkownika. Cechê jakiego rodzaju chce podaæ (czy kolor, czy materia³ itd)
 	int odpowiedz_kategoria = -1;
-	do{
-		odpowiedz_kategoria = wybierz_rodzaj_cechy();
-		odpowiedz_kategoria--; //bo u¿ytkownik liczy od 1, a komputer od 0
-		if (odpowiedz_kategoria == -1)
-			break;
+	odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_baza_danych);
+	odpowiedz_kategoria--; //bo u¿ytkownik liczy od 1, a komputer od 0
+	while (odpowiedz_kategoria != -1){
 		//drugie pytanie do u¿ytkownika - która cecha dok³adnie go interesuje
 		int odpowiedz_cecha;
-		do{
+		odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_baza_danych, baza_danych_klienta);
+
+		while (odpowiedz_cecha != -1){
+			cout << endl << "Mozesz wybrac jeszcze jedna ceche z tej kategorii," << endl;
+			cout << "lub wprowadzic 0 aby wrocic do menu wyboru kategorii." << endl;
+			cout << "Nacisnij enter, aby kontynuowac";
+			getchar();
 			odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_baza_danych, baza_danych_klienta);
-		} while (odpowiedz_cecha != -1);
+
+		};
 		if (odpowiedz_cecha == -1){
 			cout << endl << "Zrezygnowales z podawania cechy z danej kategorii!"<<endl;
-			cout << "Wybierz inna kategorie, lub zakoncz wprowadzanie danych, jesli wolisz." << endl;
+			cout << "Wybierz inna kategorie, lub zakoncz wprowadzanie danych, jesli wolisz." << endl << endl;
 		}
-			
-	} while (odpowiedz_kategoria != -1);
+
+		cout << "Nacisnij enter, aby kontynuowac wybor.";
+		getchar();
+		odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_baza_danych);
+		odpowiedz_kategoria--;
+	} ;
 
 	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
 

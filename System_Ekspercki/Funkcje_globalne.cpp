@@ -10,10 +10,10 @@ using namespace std;
 
 
 
-int wybierz_rodzaj_cechy(){
+int wybierz_rodzaj_cechy(Baza_danych cala_baza_danych){
 
 	int odpowiedz;
-	cout << endl << "Oto lista parametrow, ktore mozesz podac: " << endl;
+	cout << endl << "Oto lista kategorii cech, ktore mozesz podac: " << endl;
 	cout << "1 - kolor wystroju" << endl;
 	cout << "2 - materialy plytek oraz drzwi" << endl;
 	cout << "3 - Firma produkujaca produkty" << endl;
@@ -21,7 +21,7 @@ int wybierz_rodzaj_cechy(){
 	cout << "5 - Kraj produkcji produktu" << endl;
 	cout << "6 - Wielkosc plytki" << endl;
 	cout << "Wpisz liczbe 0, aby zakonczyc wprowadzanie." << endl;
-	cout << "Wprowadz cyfre (od 0 do 6) odpowiadajaca parametrowi, ktory chcesz podac: " << endl;
+	cout << "Wprowadz cyfre (od 0 do "<<cala_baza_danych.size()<<") odpowiadajaca parametrowi, ktory chcesz podac: " << endl;
 	odpowiedz=kontrola_poprawnosci_danych(0, 6);
 	return odpowiedz;
 };
