@@ -22,9 +22,9 @@ typ kontrola_poprawnosci_danych(typ k, typ l){
 }
 
 
-int wybierz_rodzaj_cechy(Baza_danych cala_baza_danych);
+int wybierz_rodzaj_cechy(const Baza_danych cala_baza_danych);
 
 
-int wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta);
+int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
 
 #endif Funkcje_globalne_h

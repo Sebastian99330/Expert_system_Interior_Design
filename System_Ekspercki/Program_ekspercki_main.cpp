@@ -6,7 +6,7 @@
 using namespace std;
 
 int main(){
-	Baza_danych cala_baza_danych(false);
+	const Baza_danych cala_baza_danych(false);
 	Baza_danych baza_danych_klienta;
 
 

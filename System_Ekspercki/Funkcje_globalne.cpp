@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-int wybierz_rodzaj_cechy(Baza_danych cala_baza_danych){
+int wybierz_rodzaj_cechy(const Baza_danych cala_baza_danych){
 
 	int odpowiedz;
 	cout << endl << "Oto lista kategorii cech, ktore mozesz podac: " << endl;
@@ -26,7 +26,7 @@ int wybierz_rodzaj_cechy(Baza_danych cala_baza_danych){
 	return odpowiedz;
 };
 
-int wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta){
+int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta){
 
 	//wypisanie wszystkich cech
 	cout << endl << "Wszystkie mozliwosci do wyboru z danej cechy: " << endl;
