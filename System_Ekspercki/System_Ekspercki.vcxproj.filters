@@ -21,5 +21,16 @@
     <ClCompile Include="Baza_danych.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Funkcje_globalne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Baza_danych.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Funkcje_globalne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

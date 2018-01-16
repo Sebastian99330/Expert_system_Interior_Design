@@ -79,7 +79,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Baza_danych.cpp" />
+    <ClCompile Include="Funkcje_globalne.cpp" />
     <ClCompile Include="Program_ekspercki_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Baza_danych.h" />
+    <ClInclude Include="Funkcje_globalne.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

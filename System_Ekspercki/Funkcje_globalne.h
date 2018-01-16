@@ -1,0 +1,30 @@
+#ifndef Funkcje_globalne_h
+
+#include <iostream>
+#include <string>
+#include <vector>
+#include "Baza_danych.h"
+
+using namespace std;
+//// cia³a funkcji
+
+
+template <class typ>	//szablon funkcji s³u¿¹cej do kontroli wczytywanych danych
+typ kontrola_poprawnosci_danych(typ k, typ l){
+	typ liczba;
+	while (!(cin >> liczba) || liczba<k || liczba>l || getchar() != '\n'){
+		cout << "Nie ma takiej mozliwosci! Odpowiedz na pytanie jeszcze raz ." << endl;
+		cout << "Podaj cyfre od 0 do 6: ";
+		cin.clear(); //czyœci flagê b³êdu
+		cin.sync(); //czyœci bufor strumienia
+	}
+	return liczba;
+}
+
+
+int zadaj_pytanie();
+
+
+void wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta);
+
+#endif Funkcje_globalne_h
