@@ -30,7 +30,7 @@ int main(){
 		while (odpowiedz_cecha != -1){
 			cout << endl << "Mozesz wybrac jeszcze jedna ceche z tej kategorii," << endl;
 			cout << "lub wprowadzic 0 aby wrocic do menu wyboru kategorii." << endl;
-			cout << "Nacisnij enter, aby kontynuowac";
+			cout << "Nacisnij enter, aby kontynuowac...";
 			getchar();
 			odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_baza_danych, baza_danych_klienta);
 
@@ -40,7 +40,7 @@ int main(){
 			cout << "Wybierz inna kategorie, lub zakoncz wprowadzanie danych, jesli wolisz." << endl << endl;
 		}
 
-		cout << "Nacisnij enter, aby kontynuowac wybor.";
+		cout << "Nacisnij enter, aby kontynuowac wybor...";
 		getchar();
 		odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_baza_danych);
 		odpowiedz_kategoria--;
@@ -51,4 +51,3 @@ int main(){
 	cout << endl << endl << "Koniec programu." << endl;
 	return 0;
 }
-

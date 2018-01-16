@@ -1,4 +1,5 @@
 #ifndef Funkcje_globalne_h
+#define Funkcje_globalne_h
 
 #include <iostream>
 #include <string>

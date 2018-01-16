@@ -1,4 +1,5 @@
 #ifndef Baza_danych_h
+#define Baza_danych_h
 
 #include <iostream>
 #include <vector>

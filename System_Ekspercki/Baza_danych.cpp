@@ -1,4 +1,5 @@
 #ifndef Baza_danych_cpp
+#define Baza_danych_cpp
 
 #include <iostream>
 #include <vector>
