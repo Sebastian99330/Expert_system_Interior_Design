@@ -8,13 +8,12 @@ using namespace std;
 //deklaracje funkcji
 int zadaj_pytanie();
 bool kontrola_poprawnosci_danych();	//zwraca true jak wprowadzono poprawne dane, false jesli b³êdne
-void przedstaw_mozliwosci (int);
+void przedstaw_mozliwosci (int, Baza_danych);
 
 int main(){
 	Baza_danych cala_baza_danych(false);
 	Baza_danych baza_danych_klienta;
 
-	cout<<endl<<endl<<cala_baza_danych[1][1]<<endl<<endl;
 
 	//krok 1 ze schematu blokowego - wyjasnij cel programu
 	cout << "Witaj w systemie eksperckim dotyczacym Projektowania Wnetrz." << endl;
@@ -25,10 +24,15 @@ int main(){
 	cout << "Im wiecej danych poda uzytkownik, tym bardziej precyzyjna oferta zostanie dobrana." << endl;
 
 	//
-	int odpowiedz = 0;
+	int odpowiedz = -1;
 	do{
 		odpowiedz = zadaj_pytanie();
-	} while (odpowiedz != 0);
+		odpowiedz--; //bo u¿ytkownik liczy od 1, a komputer od 0
+		if (odpowiedz == -1)
+			break;
+		przedstaw_mozliwosci(odpowiedz, cala_baza_danych);
+
+	} while (odpowiedz != -1);
 
 	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
 
@@ -59,6 +63,9 @@ int zadaj_pytanie(){
 	return odpowiedz;
 };
 
-void przedstaw_mozliwosci(int numer){
-
+void przedstaw_mozliwosci(int numer, Baza_danych cala_baza_danych){
+	cout << endl<< "Wszystkie mozliwosci do wyboru z danej cechy: "<<endl;
+	for (int i = 0; i < cala_baza_danych[numer].size(); i++){
+		cout << i <<". "<< cala_baza_danych[numer][i] << endl;
+	}
 }
