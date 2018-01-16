@@ -45,38 +45,38 @@ public:
 		//Jeœli czy_uzytkownika = false, tzn ¿e jest to ta "g³ówna", "systemowa"
 		//baza danych i j¹ wype³niamy wszystkimi danymi w tym ifie.
 		if (!czy_uzytkownika){
-			kolor.push_back("blekitny");
-			kolor.push_back("bialy");
-			kolor.push_back("bezowy");	//be¿owy
-			kolor.push_back("ciemnoszary");
-			kolor.push_back("szary");
-			kolor.push_back("champagne");
-			kolor.push_back("dymny");
-			kolor.push_back("perlowy");
+			(*this)[0].push_back("blekitny");
+			(*this)[0].push_back("bialy");
+			(*this)[0].push_back("bezowy");	//be¿owy
+			(*this)[0].push_back("ciemnoszary");
+			(*this)[0].push_back("szary");
+			(*this)[0].push_back("champagne");
+			(*this)[0].push_back("dymny");
+			(*this)[0].push_back("perlowy");
 
-			materialy.push_back("drewno");
-			materialy.push_back("marmur");
-			materialy.push_back("kamien");
-			materialy.push_back("tekstura");
-			materialy.push_back("3d");
-			materialy.push_back("monokolor");
+			(*this)[1].push_back("drewno");
+			(*this)[1].push_back("marmur");
+			(*this)[1].push_back("kamien");
+			(*this)[1].push_back("tekstura");
+			(*this)[1].push_back("3d");
+			(*this)[1].push_back("monokolor");
 
-			firma.push_back("Tubadzin");
-			firma.push_back("Atlas concorde");
-			firma.push_back("Villeroy & Boch");
+			(*this)[2].push_back("Tubadzin");
+			(*this)[2].push_back("Atlas concorde");
+			(*this)[2].push_back("Villeroy & Boch");
 
-			cena.push_back("40-90zl/m^2");
-			cena.push_back("90-140zl/m^2");
-			cena.push_back("140-250zl/m^2");
+			(*this)[3].push_back("40-90zl/m^2");
+			(*this)[3].push_back("90-140zl/m^2");
+			(*this)[3].push_back("140-250zl/m^2");
 
 
-			kraj_produkcji.push_back("Polska");
-			kraj_produkcji.push_back("W³ochy");
-			kraj_produkcji.push_back("Niemcy");
+			(*this)[4].push_back("Polska");
+			(*this)[4].push_back("W³ochy");
+			(*this)[4].push_back("Niemcy");
 
-			wielkosc_plytki.push_back("30x60cm");
-			wielkosc_plytki.push_back("60x60cm");
-			wielkosc_plytki.push_back("40x80cm");
+			(*this)[5].push_back("30x60cm");
+			(*this)[5].push_back("60x60cm");
+			(*this)[5].push_back("40x80cm");
 		}
 	}
 
