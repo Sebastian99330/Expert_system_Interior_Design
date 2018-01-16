@@ -22,9 +22,9 @@ typ kontrola_poprawnosci_danych(typ k, typ l){
 }
 
 
-int zadaj_pytanie();
+int wybierz_rodzaj_cechy();
 
 
-void wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta);
+int wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta);
 
 #endif Funkcje_globalne_h

@@ -67,7 +67,7 @@ Baza_danych::Baza_danych(bool czy_uzytkownika){
 
 
 		(*this)[4].push_back("Polska");
-		(*this)[4].push_back("W³ochy");
+		(*this)[4].push_back("Wlochy");
 		(*this)[4].push_back("Niemcy");
 
 		(*this)[5].push_back("30x60cm");

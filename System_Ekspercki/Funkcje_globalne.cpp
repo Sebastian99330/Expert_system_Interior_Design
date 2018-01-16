@@ -10,7 +10,7 @@ using namespace std;
 
 
 
-int zadaj_pytanie(){
+int wybierz_rodzaj_cechy(){
 
 	int odpowiedz;
 	cout << endl << "Oto lista parametrow, ktore mozesz podac: " << endl;
@@ -26,19 +26,31 @@ int zadaj_pytanie(){
 	return odpowiedz;
 };
 
-void wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta){
+int wybierz_ceche(int numer, Baza_danych cala_baza_danych, Baza_danych baza_danych_klienta){
+
+	//wypisanie wszystkich cech
 	cout << endl << "Wszystkie mozliwosci do wyboru z danej cechy: " << endl;
 	int ilosc_cech = cala_baza_danych[numer].size();	//czyli np ilosc kolorow, ilosc materialow itd.
 	for (int i = 0; i < ilosc_cech; i++){
 		cout << i+1 << ". " << cala_baza_danych[numer][i] << endl;
 	}
 	cout << endl << endl << "Ktora opcja spelnia Twoje wymagania?"<<endl;
-	cout << "Wprowadz cyfre (od 0 do 6) odpowiadajaca opcji, ktora spelnia twoje wymagania: ";
+	cout << "wprowadzenie cyfry 0 cofnie wykonywanie obecnej operacji" << endl;
+	cout << "Wprowadz cyfre (od 0 do "<< ilosc_cech <<") odpowiadajaca opcji, ktora spelnia twoje wymagania: ";
+	
+	//wczytanie cechy od u¿ytkownika
 	int odpowiedz;
 	odpowiedz = kontrola_poprawnosci_danych(0, ilosc_cech);
+	odpowiedz--; // bo u¿ytkownik-cz³owiek liczy od 1, a komputer od 0
+	if (odpowiedz == -1){
+		return odpowiedz;
+	}
 	
 
+	//dodanie podanej przez u¿ytkownika cechy do jego bazy danych
+	cout << endl << "Wybrales: " << cala_baza_danych[numer][odpowiedz] << endl;
 
+	return odpowiedz;
 }
 
 #endif Funkcje_globalne_cpp
