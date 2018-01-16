@@ -11,9 +11,10 @@ bool kontrola_poprawnosci_danych();	//zwraca true jak wprowadzono poprawne dane,
 void przedstaw_mozliwosci (int);
 
 int main(){
-	Baza_danych cala_baza_danych;
+	Baza_danych cala_baza_danych(false);
 	Baza_danych baza_danych_klienta;
 
+	cout<<endl<<endl<<cala_baza_danych[1][1]<<endl<<endl;
 
 	//krok 1 ze schematu blokowego - wyjasnij cel programu
 	cout << "Witaj w systemie eksperckim dotyczacym Projektowania Wnetrz." << endl;

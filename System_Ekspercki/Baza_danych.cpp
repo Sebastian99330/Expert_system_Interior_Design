@@ -15,8 +15,8 @@ public:
 	//czy ta baza danych jest u¿ytkownika? Jeœli tak, to stworzymy pust¹ bazê danych
 	//i u¿ytkownik sobie doda z listy wszystkich cech do bazy te cechy, które go interesuj¹.
 	//Jeœli nie, to znaczy ¿e tworzymy tê "ogóln¹" bazê danych zawieraj¹c¹ wszystkie produkty.
-	Baza_danych(bool czy_uzytkownika=false){
-		
+	Baza_danych(bool czy_uzytkownika=true){
+ 		
 		//tworzymy "pust¹" bazê danych, tzn jeszcze j¹ nie wype³niamy ¿adnymi danymi
 		vector<string> kolor;
 		this->push_back(kolor);
