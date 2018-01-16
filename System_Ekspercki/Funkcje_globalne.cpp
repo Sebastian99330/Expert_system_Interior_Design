@@ -51,10 +51,18 @@ int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &b
 
 
 	//teraz dodamy ta ceche do bazy tego klienta
+	dodaj_ceche(numer, odpowiedz, cala_baza_danych, baza_danych_klienta);
+
+	return odpowiedz;
+}
+
+void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta){
+
+
 	//sprawdzimy, czy ta cecha jeszcze nie zostala wczesniej dodana
 
 	//zmienna pomocnicza: czy klient ju¿ wczeœniej doda³ ow¹ cechê?
-	bool czy_cecha_dodana = false;	
+	bool czy_cecha_dodana = false;
 
 	//przeszukamy po ca³ym wektorze klienta w poszukiwaniu tej cechy, któr¹ chce on dodaæ do swoich upodobañ
 	for (int i = 0; i < baza_danych_klienta[numer].size(); i++){
@@ -76,7 +84,6 @@ int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &b
 		cout << endl << "Wybrana cecha zostala juz wczesniej dodana!" << endl;
 	}
 
-	return odpowiedz;
 }
 
 #endif Funkcje_globalne_cpp

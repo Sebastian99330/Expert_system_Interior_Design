@@ -28,4 +28,6 @@ int wybierz_rodzaj_cechy(const Baza_danych cala_baza_danych);
 
 int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
 
+void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+
 #endif Funkcje_globalne_h
