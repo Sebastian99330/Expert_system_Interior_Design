@@ -84,6 +84,16 @@ void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, 
 		cout << endl << "Wybrana cecha zostala juz wczesniej dodana!" << endl;
 	}
 
+	//wypisanie wszystkich dodanych cech z danej kategorii
+	cout << endl <<"Do tej pory z tej kategorii dodales: "<< endl;
+	for (int i = 0; i < baza_danych_klienta[numer].size(); i++){
+		cout << baza_danych_klienta[numer][i];
+		//nie chcemy wypisywaæ przecinka po ostatnim elemencie
+		int indeks_ostatniego_elementu = baza_danych_klienta[numer].size() - 1;
+		if (i != indeks_ostatniego_elementu){
+			cout<< ", ";
+		}
+	}
 }
 
 #endif Funkcje_globalne_cpp
