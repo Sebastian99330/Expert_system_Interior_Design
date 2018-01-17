@@ -32,5 +32,7 @@ void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, 
 
 bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
 
+void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+
 
 #endif Funkcje_globalne_h

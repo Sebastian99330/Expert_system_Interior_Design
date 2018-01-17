@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm> //dla usuwania elementów z vectora
 #include "Funkcje_globalne.h"
 
 using namespace std;
@@ -38,7 +39,7 @@ int wybierz_ceche(int numer_kategorii, const Baza_danych &cala_baza_danych, Baza
 		bool czy_dodane;
 		czy_dodane = czy_cecha_dodana(numer_kategorii, i, cala_baza_danych, baza_danych_klienta);
 		if (czy_dodane == true){
-			cout << " (juz dodane) ";
+			cout << " (juz dodane. Wybierz ponownie aby usunac) ";
 		}
 		cout<< endl;
 	}
@@ -77,12 +78,14 @@ void dodaj_ceche(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baz
 		cout << endl << "Dodano do cech uzytkownika." << endl;
 	}
 	else{
-		cout << endl << "Wybrana cecha zostala juz wczesniej dodana!" << endl;
+		usun_ceche(numer_kategorii, odpowiedz, cala_baza_danych, baza_danych_klienta);
+		cout << endl << "Usunieto ceche. Jesli chcesz, mozesz dodac ja ponownie." << endl;
 	}
 
 	//wypisanie wszystkich dodanych cech z danej kategorii
 	cout << endl <<"Do tej pory z tej kategorii dodales: "<< endl;
-	for (int i = 0; i < baza_danych_klienta[numer_kategorii].size(); i++){
+	int ilosc_cech = baza_danych_klienta[numer_kategorii].size();
+	for (int i = 0; i < ilosc_cech; i++){
 		cout << baza_danych_klienta[numer_kategorii][i];
 		//nie chcemy wypisywaæ przecinka po ostatnim elemencie
 		int indeks_ostatniego_elementu = baza_danych_klienta[numer_kategorii].size() - 1;
@@ -90,6 +93,7 @@ void dodaj_ceche(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baz
 			cout<< ", ";
 		}
 	}
+	cout << endl;
 }
 
 bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta){
@@ -99,7 +103,8 @@ bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cal
 	bool czy_dodana = false;
 
 	//przeszukamy po ca³ym wektorze klienta w poszukiwaniu tej cechy, któr¹ chce on dodaæ do swoich upodobañ
-	for (int i = 0; i < baza_danych_klienta[numer_kategorii].size(); i++){
+	int ilosc_cech = baza_danych_klienta[numer_kategorii].size();
+	for (int i = 0; i < ilosc_cech; i++){
 		//jeœli ten element w wektorze który na którym teraz aktualnie jesteœmy, 
 		//jest identyczny jak ten który klient chce dodaæ, to znaczy ¿e by³ ju¿ wczeœniej dodany.
 		if (cala_baza_danych[numer_kategorii][odpowiedz] == baza_danych_klienta[numer_kategorii][i]){
@@ -108,6 +113,25 @@ bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cal
 		}
 	}
 	return false;
+}
+
+
+void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta){
+
+	//usuwamy ceche z bazy danych u¿ytkownika
+
+	string napis = cala_baza_danych[numer_kategorii][odpowiedz];
+	vector<string>::iterator iter1 = std::find(baza_danych_klienta[numer_kategorii].begin(), baza_danych_klienta[numer_kategorii].end(), napis);
+	if (iter1 != baza_danych_klienta[numer_kategorii].end())
+	{
+		baza_danych_klienta[numer_kategorii].erase(iter1);
+	}
+
+
+	//vector<string>::iterator iter = find(baza_danych_klienta.begin(), baza_danych_klienta.end(), napis);
+	//baza_danych_klienta.erase(remove(baza_danych_klienta.begin(), baza_danych_klienta.end(), cala_baza_danych[numer_kategorii][odpowiedz]), baza_danych_klienta.end());
+
+
 }
 
 #endif Funkcje_globalne_cpp
