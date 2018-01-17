@@ -12,21 +12,47 @@ using namespace std;
 
 
 
-int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech){
+int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech, const Baza_cech &baza_cech_klienta){
 
 	int odpowiedz;
 	cout << endl << "Oto lista kategorii cech, ktore mozesz podac: " << endl;
-	cout << "1 - kolor wystroju" << endl;
-	cout << "2 - materialy plytek oraz drzwi" << endl;
-	cout << "3 - Firma produkujaca produkty" << endl;
-	cout << "4 - Cena produktu" << endl;
-	cout << "5 - Kraj produkcji produktu" << endl;
-	cout << "6 - Wielkosc plytki" << endl;
+	cout << "1 - kolor wystroju"<<"\t\t\t("; wypisz_wybrane_cechy(0, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
+	cout << "2 - materialy plytek oraz drzwi" << "\t\t("; wypisz_wybrane_cechy(1, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
+	cout << "3 - Firma produkujaca produkty" << "\t\t("; wypisz_wybrane_cechy(2, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
+	cout << "4 - Cena produktu" << "\t\t\t("; wypisz_wybrane_cechy(3, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
+	cout << "5 - Kraj produkcji produktu" << "\t\t("; wypisz_wybrane_cechy(4, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
+	cout << "6 - Wielkosc plytki" << "\t\t\t("; wypisz_wybrane_cechy(5, cala_Baza_cech, baza_cech_klienta);
+	cout << ")" << endl;
 	cout << "Wpisz liczbe 0, aby zakonczyc wprowadzanie." << endl;
 	cout << "Wprowadz cyfre (od 0 do "<<cala_Baza_cech.size()<<") odpowiadajaca parametrowi, ktory chcesz podac: " << endl;
 	odpowiedz=kontrola_poprawnosci_danych(0, 6);
 	return odpowiedz;
 };
+
+void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech cala_Baza_cech, const Baza_cech &baza_cech_klienta){
+	int ilosc_cech = baza_cech_klienta[nr_kategorii].size();
+	if (ilosc_cech==0){
+		cout << "Jeszcze nic nie wybrano z tej kategorii";
+		return;
+	}
+	for (int i = 0; i < ilosc_cech; i++){
+		if (i == 0){
+			cout << "Wybrano: ";
+		}
+		cout << baza_cech_klienta[nr_kategorii][i].cecha;
+		//nie chcemy wypisywaæ przecinka po ostatnim elemencie
+		int indeks_ostatniego_elementu = baza_cech_klienta[nr_kategorii].size() - 1;
+		if (i != indeks_ostatniego_elementu){
+			cout << ", ";
+		}
+	}
+
+}
 
 int wybierz_ceche(int numer_kategorii, const Baza_cech &cala_Baza_cech, Baza_cech &baza_cech_klienta){
 
@@ -84,15 +110,7 @@ void dodaj_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_
 
 	//wypisanie wszystkich dodanych cech z danej kategorii
 	cout << endl <<"Do tej pory z tej kategorii dodales: "<< endl;
-	int ilosc_cech = baza_cech_klienta[numer_kategorii].size();
-	for (int i = 0; i < ilosc_cech; i++){
-		cout << baza_cech_klienta[numer_kategorii][i].cecha;
-		//nie chcemy wypisywaæ przecinka po ostatnim elemencie
-		int indeks_ostatniego_elementu = baza_cech_klienta[numer_kategorii].size() - 1;
-		if (i != indeks_ostatniego_elementu){
-			cout<< ", ";
-		}
-	}
+	wypisz_wybrane_cechy(numer_kategorii, cala_Baza_cech, baza_cech_klienta);
 	cout << endl;
 }
 
