@@ -30,4 +30,7 @@ int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &b
 
 void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
 
+bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+
+
 #endif Funkcje_globalne_h
