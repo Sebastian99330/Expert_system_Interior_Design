@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "Cecha.h"
 using namespace std;
 
 
@@ -11,7 +12,7 @@ using namespace std;
 //oraz poszczególnych wektorów w nim, które odpowiadaj¹ poszczególnym cechom: kolorowi, materia³owi itd.
 //te "poszczególne" wektory, czyli te w œrodku, trzymaj¹ dane które interesuj¹ u¿ytkownika
 //czyli odpowiednio: w wektorze kolorów niebieski, ¿ó³ty itd; w drugim wektorze (materia³ów): drewno, marmur itd.
-class Baza_cech : public vector<vector<string>> {
+class Baza_cech : public vector<vector<Cecha>> {
 public:
 
 	//konstruktor z argumentem bool czy_uzytkownika. ten argument oznacza: 

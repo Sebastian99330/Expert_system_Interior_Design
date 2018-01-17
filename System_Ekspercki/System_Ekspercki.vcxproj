@@ -78,8 +78,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Baza_danych.cpp" />
+    <ClCompile Include="Baza_cech.cpp" />
     <ClCompile Include="Baza_produktow.cpp" />
+    <ClCompile Include="Cecha.cpp" />
     <ClCompile Include="Funkcje_globalne.cpp" />
     <ClCompile Include="Produkt.cpp" />
     <ClCompile Include="Program_ekspercki_main.cpp" />
@@ -87,6 +88,7 @@
   <ItemGroup>
     <ClInclude Include="Baza_cech.h" />
     <ClInclude Include="Baza_produktow.h" />
+    <ClInclude Include="Cecha.h" />
     <ClInclude Include="Funkcje_globalne.h" />
     <ClInclude Include="Produkt.h" />
   </ItemGroup>

@@ -18,9 +18,6 @@
     <ClCompile Include="Program_ekspercki_main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Baza_danych.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Funkcje_globalne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -28,6 +25,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Baza_produktow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Baza_cech.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,6 +45,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Baza_cech.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
