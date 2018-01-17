@@ -1,9 +1,9 @@
-#ifndef Baza_danych_cpp
-#define Baza_danych_cpp
+#ifndef Baza_cech_cpp
+#define Baza_cech_cpp
 
 #include <iostream>
 #include <vector>
-#include "Baza_danych.h"
+#include "Baza_cech.h"
 using namespace std;
 
 
@@ -12,7 +12,7 @@ using namespace std;
 //oraz poszczególnych wektorów w nim, które odpowiadaj¹ poszczególnym cechom: kolorowi, materia³owi itd.
 //te "poszczególne" wektory, czyli te w œrodku, trzymaj¹ dane które interesuj¹ u¿ytkownika
 //czyli odpowiednio: w wektorze kolorów niebieski, ¿ó³ty itd; w drugim wektorze (materia³ów): drewno, marmur itd.
-Baza_danych::Baza_danych(bool czy_uzytkownika){
+Baza_cech::Baza_cech(bool czy_uzytkownika){
 
 	//tworzymy "pust¹" bazê danych, tzn jeszcze j¹ nie wype³niamy ¿adnymi danymi
 	vector<string> kolor;
@@ -78,4 +78,4 @@ Baza_danych::Baza_danych(bool czy_uzytkownika){
 };
 
 
-#endif Baza_danych_cpp
+#endif Baza_cech_cpp

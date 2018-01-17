@@ -24,12 +24,24 @@
     <ClCompile Include="Funkcje_globalne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Produkt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Baza_produktow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Baza_danych.h">
+    <ClInclude Include="Funkcje_globalne.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Funkcje_globalne.h">
+    <ClInclude Include="Produkt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Baza_produktow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Baza_cech.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

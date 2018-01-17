@@ -1,5 +1,5 @@
-#ifndef Baza_danych_h
-#define Baza_danych_h
+#ifndef Baza_cech_h
+#define Baza_cech_h
 
 #include <iostream>
 #include <vector>
@@ -11,16 +11,16 @@ using namespace std;
 //oraz poszczególnych wektorów w nim, które odpowiadaj¹ poszczególnym cechom: kolorowi, materia³owi itd.
 //te "poszczególne" wektory, czyli te w œrodku, trzymaj¹ dane które interesuj¹ u¿ytkownika
 //czyli odpowiednio: w wektorze kolorów niebieski, ¿ó³ty itd; w drugim wektorze (materia³ów): drewno, marmur itd.
-class Baza_danych : public vector<vector<string>> {
+class Baza_cech : public vector<vector<string>> {
 public:
 
 	//konstruktor z argumentem bool czy_uzytkownika. ten argument oznacza: 
 	//czy ta baza danych jest u¿ytkownika? Jeœli tak, to stworzymy pust¹ bazê danych
 	//i u¿ytkownik sobie doda z listy wszystkich cech do bazy te cechy, które go interesuj¹.
 	//Jeœli nie, to znaczy ¿e tworzymy tê "ogóln¹" bazê danych zawieraj¹c¹ wszystkie produkty.
-	Baza_danych(bool czy_uzytkownika = true);
+	Baza_cech(bool czy_uzytkownika = true);
 
 };
 
 
-#endif Baza_danych_h
+#endif Baza_cech_h

@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "Baza_danych.h"
+#include "Baza_cech.h"
 
 using namespace std;
 //// cia³a funkcji
@@ -23,16 +23,16 @@ typ kontrola_poprawnosci_danych(typ k, typ l){
 }
 
 
-int wybierz_rodzaj_cechy(const Baza_danych cala_baza_danych);
+int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech);
 
 
-int wybierz_ceche(int numer, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+int wybierz_ceche(int numer, const Baza_cech &cala_Baza_cech, Baza_cech &Baza_cech_klienta);
 
-void dodaj_ceche(int numer, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+void dodaj_ceche(int numer, int odpowiedz, const Baza_cech &cala_Baza_cech, Baza_cech &Baza_cech_klienta);
 
-bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_cech, Baza_cech &Baza_cech_klienta);
 
-void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_danych &cala_baza_danych, Baza_danych &baza_danych_klienta);
+void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_cech, Baza_cech &Baza_cech_klienta);
 
 
 #endif Funkcje_globalne_h

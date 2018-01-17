@@ -6,8 +6,8 @@
 using namespace std;
 
 int main(){
-	const Baza_danych cala_baza_danych(false);
-	Baza_danych baza_danych_klienta;
+	const Baza_cech cala_Baza_cech(false);
+	Baza_cech Baza_cech_klienta;
 
 
 	//przedstawienie u¿ytkownikowi celu programu
@@ -20,19 +20,19 @@ int main(){
 
 	//pierwsze pytanie do u¿ytkownika. Cechê jakiego rodzaju chce podaæ (czy kolor, czy materia³ itd)
 	int odpowiedz_kategoria = -1;
-	odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_baza_danych);
+	odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_Baza_cech);
 	odpowiedz_kategoria--; //bo u¿ytkownik liczy od 1, a komputer od 0
 	while (odpowiedz_kategoria != -1){
 		//drugie pytanie do u¿ytkownika - która cecha dok³adnie go interesuje
 		int odpowiedz_cecha;
-		odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_baza_danych, baza_danych_klienta);
+		odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_Baza_cech, Baza_cech_klienta);
 
 		while (odpowiedz_cecha != -1){
 			cout << endl << "Mozesz wybrac jeszcze jedna ceche z tej kategorii," << endl;
 			cout << "lub wprowadzic 0 aby wrocic do menu wyboru kategorii." << endl;
 			cout << "Nacisnij enter, aby kontynuowac...";
 			getchar();
-			odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_baza_danych, baza_danych_klienta);
+			odpowiedz_cecha = wybierz_ceche(odpowiedz_kategoria, cala_Baza_cech, Baza_cech_klienta);
 
 		};
 		if (odpowiedz_cecha == -1){
@@ -42,7 +42,7 @@ int main(){
 
 		cout << "Nacisnij enter, aby kontynuowac wybor...";
 		getchar();
-		odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_baza_danych);
+		odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_Baza_cech);
 		odpowiedz_kategoria--;
 	} ;
 
