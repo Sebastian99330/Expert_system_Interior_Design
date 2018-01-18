@@ -1,3 +1,7 @@
+//Uniwersytet Kardyna³a Stefana Wyszyñskiego
+//Wydzia³ Matematyczno-Przyrodniczy
+//Rok akademicki 2017/2018
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -10,7 +14,7 @@ int main(){
 	Baza_cech cala_Baza_cech(false);
 	Baza_cech baza_cech_klienta;
 	Baza_produktow baza_produktow;
-
+	vector<Produkt> pasujace_produkty;
 
 
 	//przedstawienie u¿ytkownikowi celu programu
@@ -61,8 +65,8 @@ int main(){
 	cout << "twoje oczekiwania, wraz z linkami do strony internetowej z nimi." << endl;
 	
 
-	znajdz_produkty(baza_cech_klienta, baza_produktow);
-
+	znajdz_produkty(baza_cech_klienta, baza_produktow, pasujace_produkty);
+	otworz_przegladarke(baza_cech_klienta, baza_produktow, pasujace_produkty);
 	//ShellExecute(0, 0, L"http://www.google.com", 0, 0, SW_SHOW);	//otworzenie przegladarki
 
 	cout << endl << endl << "Koniec programu." << endl;

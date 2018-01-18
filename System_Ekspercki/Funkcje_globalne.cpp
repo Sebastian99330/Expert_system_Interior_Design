@@ -19,13 +19,13 @@ int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech, const Baza_cech &baza_c
 	cout << endl << "Oto lista kategorii cech, ktore mozesz podac: " << endl;
 	cout << "1 - kolor wystroju"<<"\t\t\t("; wypisz_wybrane_cechy(0, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
-	cout << "2 - materialy plytek oraz drzwi" << "\t\t("; wypisz_wybrane_cechy(1, cala_Baza_cech, baza_cech_klienta);
+	cout << "2 - tekstura plytek" << "\t\t\t("; wypisz_wybrane_cechy(1, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
 	cout << "3 - Firma produkujaca produkty" << "\t\t("; wypisz_wybrane_cechy(2, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
 	cout << "4 - Cena produktu" << "\t\t\t("; wypisz_wybrane_cechy(3, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
-	cout << "5 - Kraj produkcji produktu" << "\t\t("; wypisz_wybrane_cechy(4, cala_Baza_cech, baza_cech_klienta);
+	cout << "5 - Kraj produkcji" << "\t\t\t("; wypisz_wybrane_cechy(4, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
 	cout << "6 - Wielkosc plytki" << "\t\t\t("; wypisz_wybrane_cechy(5, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
@@ -59,7 +59,7 @@ int wybierz_ceche(int numer_kategorii, const Baza_cech &cala_Baza_cech, Baza_cec
 
 	//wypisanie wszystkich cech
 	cout << endl << "Wszystkie mozliwosci do wyboru z danej cechy: " << endl;
-	int ilosc_cech = cala_Baza_cech[numer_kategorii].size();	//czyli np ilosc kolorow, ilosc materialow itd.
+	int ilosc_cech = cala_Baza_cech[numer_kategorii].size();	//czyli np ilosc kolorow, ilosc tekstur itd.
 	for (int i = 0; i < ilosc_cech; i++){
 		cout << i + 1 << ". " << cala_Baza_cech[numer_kategorii][i].cecha;
 		//jak cecha zosta³a ju¿ dodana, to o tym wspomnimy u¿ytkownikowi.
@@ -173,7 +173,7 @@ void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 				switch (i)
 				{
 				case 0: cout << "Kolor: "; break;
-				case 1: cout << "Material: "; break;
+				case 1: cout << "Tekstura: "; break;
 				case 2: cout << "Firma: "; break;
 				case 3: cout << "Cena: "; break;
 				case 4: cout << "Kraj pochodzenia: "; break;
@@ -195,8 +195,8 @@ void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 
 }
 
-void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow){
-	vector<Produkt> pasujace_produkty;
+void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow, vector<Produkt> &pasujace_produkty){
+
 
 	cout << endl;
 	int ilosc_produktow = baza_produktow.size();
@@ -219,15 +219,16 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 			}
 		}
 	}
+}
 
-	//konwersja stringu - napisu url, 
-	//do formatu potrzebnego to otworzenia przegladarki
+void otworz_przegladarke(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow, vector<Produkt> &pasujace_produkty){
+
 
 	cout << endl << endl;
 	cout << "Mozesz teraz otworzyc ktorys produkt w przegladarce internetowej." << endl;
 	int odpowiedz;
 	do{
-		cout << endl<<"Wpisz 0 jesli nie chcesz otwierac przegladarki i chcesz zakonczyc prace programu,"<<endl;
+		cout << endl << "Wpisz 0 jesli nie chcesz otwierac przegladarki i chcesz zakonczyc prace programu," << endl;
 		cout << "Lub podaj cyfre produktu ktory chcialbys zobaczyc: ";
 		int ilosc_pasujacych_produktow = pasujace_produkty.size();
 		odpowiedz = kontrola_poprawnosci_danych(0, ilosc_pasujacych_produktow);
@@ -235,12 +236,14 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 		if (odpowiedz == -1){
 			continue;
 		}
+
+		//konwersja stringu - napisu url, 
+		//do formatu potrzebnego to otworzenia przegladarki
 		wstring stemp = wstring(pasujace_produkty[odpowiedz].link_url.begin(), pasujace_produkty[odpowiedz].link_url.end());
 		LPCWSTR otwieracz = stemp.c_str();
 		ShellExecute(0, 0, otwieracz, 0, 0, SW_SHOW);	//otworzenie przegladarki
 	} while (odpowiedz != -1);
 }
-
 
 
 

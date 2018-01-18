@@ -39,6 +39,9 @@ void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech &cala_Baza_cech, con
 
 void podsumuj_cechy(Baza_cech &baza_cech_klienta);
 
-void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow);
+void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow, vector<Produkt> &pasujace_produkty);
+
+void otworz_przegladarke(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow, vector<Produkt> &pasujace_produkty);
+
 
 #endif Funkcje_globalne_h
