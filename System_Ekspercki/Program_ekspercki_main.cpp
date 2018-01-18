@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <windows.h>
 #include "Funkcje_globalne.h"
 
 using namespace std;
@@ -10,6 +11,8 @@ int main(){
 	Baza_cech baza_cech_klienta;
 
 
+
+
 	//przedstawienie u¿ytkownikowi celu programu
 	cout << "Witaj w systemie eksperckim dotyczacym Projektowania Wnetrz." << endl;
 	cout << "Program podaje uzytkownikowi produkty, ktore spelniaja jego wymagania odnosnie wystroju wnetrz."<<endl;
@@ -17,6 +20,8 @@ int main(){
 	cout << endl <<"Sposob dzialania programu: " << endl;
 	cout << "Uzytkownik najpierw podaje taka ilosc parametrow jaka chce, po czym program zwraca wyniki." << endl;
 	cout << "Im wiecej danych poda uzytkownik, tym bardziej precyzyjna oferta zostanie dobrana." << endl;
+
+	cout << endl<<"Aby wprawdzic dane, wpisz wybrana cyfre i potem nacisnij enter." << endl;
 
 	//pierwsze pytanie do u¿ytkownika. Cechê jakiego rodzaju chce podaæ (czy kolor, czy materia³ itd)
 	int odpowiedz_kategoria = -1;
@@ -47,6 +52,8 @@ int main(){
 	} ;
 
 	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
+
+	//ShellExecute(0, 0, L"http://www.google.com", 0, 0, SW_SHOW);	//otworzenie przegladarki
 
 	cout << endl << endl << "Koniec programu." << endl;
 	return 0;

@@ -15,7 +15,7 @@ typ kontrola_poprawnosci_danych(typ k, typ l){
 	typ liczba;
 	while (!(cin >> liczba) || liczba<k || liczba>l || getchar() != '\n'){
 		cout << "Nie ma takiej mozliwosci! Odpowiedz na pytanie jeszcze raz ." << endl;
-		cout << "Podaj cyfre od 0 do 6: ";
+		cout << "Podaj odpowiednia cyfre: ";
 		cin.clear(); //czyœci flagê b³êdu
 		cin.sync(); //czyœci bufor strumienia
 	}
