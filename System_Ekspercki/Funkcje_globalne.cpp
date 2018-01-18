@@ -196,7 +196,10 @@ void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 }
 
 void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow){
+	vector<Produkt> wektor;
+
 	cout << endl;
+	int ilosc_produktow = baza_produktow.size();
 	int licznik = 1;
 	int ilosc_kategorii = baza_cech_klienta.size();
 	for (int i = 0; i < ilosc_kategorii; i++){
@@ -205,8 +208,10 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 			continue;
 		}
 		for (int j = 0; j < ilosc_cech; j++){
-			if (baza_produktow.p1.id_koloru == baza_cech_klienta[i][j].id_cechy){
-				cout << licznik++ << ". " << baza_produktow.p1.link_url << endl;
+
+			if (baza_produktow[0].id_koloru == baza_cech_klienta[i][j].id_cechy){
+				cout << licznik++ << ". " << baza_produktow.p1.nazwa_produktu << endl;
+				cout<< "Link do przegladarki internetowej: "<< baza_produktow.p1.link_url << endl;
 				string link = baza_produktow.p1.link_url;
 
 				//konwersja stringu - napisu url, 
@@ -221,7 +226,7 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 					ShellExecute(0, 0, sw, 0, 0, SW_SHOW);	//otworzenie przegladarki
 				}
 				
-				
+				wektor.push_back(baza_produktow.p1);
 
 			}
 		}
