@@ -209,11 +209,10 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 		}
 		for (int j = 0; j < ilosc_cech; j++){
 
-			for (int k = 0; j < ilosc_produktow; j++){
+			for (int k = 0; k < ilosc_produktow; k++){
 				if (baza_produktow[k].id_koloru == baza_cech_klienta[i][j].id_cechy){
-					cout << licznik++ << ". " << baza_produktow.p1.nazwa_produktu << endl;
-					cout<< "Link do przegladarki internetowej: "<< baza_produktow.p1.link_url << endl;
-					string link = baza_produktow[k].link_url;
+					cout << licznik++ << ". " << baza_produktow[k].nazwa_produktu << endl;
+					cout<< "Link do przegladarki internetowej: "<< baza_produktow[k].link_url << endl;
 					pasujace_produkty.push_back(baza_produktow[k]);
 
 				}
@@ -226,20 +225,23 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 
 	cout << endl << endl;
 	cout << "Mozesz teraz otworzyc ktorys produkt w przegladarce internetowej." << endl;
-	cout << "Wpisz 0 jesli nie chcesz otwierac przegladarki i chcesz zakonczyc prace programu,"<<endl;
-	cout << "Lub podaj cyfre produktu ktory chcialbys zobaczyc: ";
-
-	int ilosc_pasujacych_produktow = pasujace_produkty.size();
-	int odpowiedz = kontrola_poprawnosci_danych(0, ilosc_pasujacych_produktow);
-	
-	if (odpowiedz != 0){
+	int odpowiedz;
+	do{
+		cout << endl<<"Wpisz 0 jesli nie chcesz otwierac przegladarki i chcesz zakonczyc prace programu,"<<endl;
+		cout << "Lub podaj cyfre produktu ktory chcialbys zobaczyc: ";
+		int ilosc_pasujacych_produktow = pasujace_produkty.size();
+		odpowiedz = kontrola_poprawnosci_danych(0, ilosc_pasujacych_produktow);
 		odpowiedz--; //bo czlowiek liczy od 1 a komputer od 0
-		wstring stemp = wstring(pasujace_produkty[odpowiedz].link_url.begin(), pasujace_produkty[0].link_url.end());
+		if (odpowiedz == -1){
+			continue;
+		}
+		wstring stemp = wstring(pasujace_produkty[odpowiedz].link_url.begin(), pasujace_produkty[odpowiedz].link_url.end());
 		LPCWSTR otwieracz = stemp.c_str();
 		ShellExecute(0, 0, otwieracz, 0, 0, SW_SHOW);	//otworzenie przegladarki
-	}
-	
+	} while (odpowiedz != -1);
 }
+
+
 
 
 #endif Funkcje_globalne_cpp

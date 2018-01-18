@@ -41,7 +41,7 @@ int main(){
 
 		};
 		if (odpowiedz_cecha == -1){
-			cout << endl << "Zrezygnowales z podawania cechy z danej kategorii!"<<endl;
+			cout << endl << "Zrezygnowales z podawania cechy z danej kategorii."<<endl;
 			cout << "Wybierz inna kategorie, lub zakoncz wprowadzanie danych, jesli wolisz." << endl << endl;
 		}
 
