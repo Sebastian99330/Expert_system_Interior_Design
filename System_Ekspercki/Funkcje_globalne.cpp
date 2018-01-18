@@ -5,11 +5,10 @@
 #include <string>
 #include <vector>
 #include <algorithm> //dla usuwania elementów z vectora
-#include <windows.h>
+#include <windows.h> //do otworzenia przegl¹darki, ShellExecute
 #include "Funkcje_globalne.h"
 
 using namespace std;
-//// cia³a funkcji
 
 
 
@@ -197,22 +196,77 @@ void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 
 void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow, vector<Produkt> &pasujace_produkty){
 
-
 	cout << endl;
+
+	//inicjalizacja podstawowych, pomocniczych zmiennych
 	int ilosc_produktow = baza_produktow.size();
 	int licznik = 1;
 	int ilosc_kategorii = baza_cech_klienta.size();
+
+	//Zaczynamy chodziæ po wszystkich cechach, które u¿ytkownik sobie wybra³
+	//¿eby znaleŸæ produkty pasuj¹ce do nich.
+	//Baza cech to wektor, który zawiera wektory.
+	//Wewnêtrzne wektory to wektory zawieraj¹ce konkretne cechy (jak: zielony kolor, drewniane p³ytki).
+	//Zewnêtrzny wektor to wektor, który zawiera te mniejsze wektory cech, pogrupowane kategoriami.
+
+	//pierwszy for to przejœcie ca³ego "g³ównego" wektora bazy cech klienta
 	for (int i = 0; i < ilosc_kategorii; i++){
 		int ilosc_cech = baza_cech_klienta[i].size();
+		//jeœli klient sobie nie upodoba³ ¿adnej cechy z danej kategorii, to jej nie przechodzimy
 		if (ilosc_cech == 0){
 			continue;
 		}
+		//drugi for to przejœcie ca³ego WEWNÊTRZNEGO wektora cech (zawieraj¹cego konkretne cechy)
 		for (int j = 0; j < ilosc_cech; j++){
 
+			//trzeci for, dla porównania ka¿dej cechy (z bazy danych klienta któr¹ obchodzimy)
+			//z list¹ wszystkich produktów które mamy (i zapisujemy te, które pasuj¹)
+			//czyli trzeci for obchodzi wszystkie produkty
 			for (int k = 0; k < ilosc_produktow; k++){
-				if (baza_produktow[k].id_koloru == baza_cech_klienta[i][j].id_cechy){
+				
+				int id_cechy2 = baza_cech_klienta[i][j].id_cechy;
+
+				//Porównamy produkt, na którym teraz jesteœmy 
+				//podczas przeszukiwania bazy danych produktów -
+				//z cech¹, na której teraz jesteœmy podczas przeszukiwania bazy cech.
+
+				//zmienna pomocnicza dla uproszczenia kodu
+				bool czy_produkt_pasuje = false;
+
+				//U¿ywamy takiego wielokrotnego if'a, bo musimy -
+				//badaj¹c te przedzia³y (0-7 itd), badamy z któr¹ cech¹ mamy porównywaæ produkt.
+				//Baza cech jest tak zbudowana, ¿e kolejne cechy maj¹ kolejne liczby id - bez wzglêdu na kategoriê.
+				//Czyli nie jest tak, ¿e dla kolorów id rosn¹ kolejno od 0,
+				//i potem dla materia³ów znowu od 0.
+				//Tylko dla materia³ów id_cech lec¹ dalej, np od 8 itd.
+				//Dlatego musimy zbadaæ przedzia³y, których zakresy znamy z tego jak wype³niliœmy Baza_cech.
+				//Potem jak wiemy w jakiej kategorii cech jesteœmy, mo¿emy porównywaæ odpowiednie id z produktu
+				//np id_koloru albo id_materialu.
+				if (id_cechy2>0 && id_cechy2 <= 7){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_koloru);
+				}
+				else if (id_cechy2>=8 && id_cechy2 <= 13){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_materialu);
+				}
+				else if (id_cechy2 >= 14 && id_cechy2 <= 16){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_firmy);
+				}
+				else if (id_cechy2 >= 17 && id_cechy2 <= 19){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_ceny);
+				}
+				else if (id_cechy2 >= 20 && id_cechy2 <= 22){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_kraju_produkcji);
+				}
+				else if (id_cechy2 >= 23 && id_cechy2 <= 27){
+					czy_produkt_pasuje = (baza_cech_klienta[i][j].id_cechy == baza_produktow[k].id_wielkosc_plytki);
+				}
+
+				//jeœli produkt pasuje do cechy... 
+				if (czy_produkt_pasuje==true){
+					//to wypisujemy nazwê produktu i link url
 					cout << licznik++ << ". " << baza_produktow[k].nazwa_produktu << endl;
 					cout<< "Link do przegladarki internetowej: "<< baza_produktow[k].link_url << endl;
+					//i dodajemy ten produkt do wektora produktów, które pasuj¹ klientowi
 					pasujace_produkty.push_back(baza_produktow[k]);
 
 				}
@@ -237,8 +291,7 @@ void otworz_przegladarke(Baza_cech &baza_cech_klienta, const Baza_produktow &baz
 			continue;
 		}
 
-		//konwersja stringu - napisu url, 
-		//do formatu potrzebnego to otworzenia przegladarki
+		//konwersja stringu - napisu url, do formatu potrzebnego do otworzenia przegladarki
 		wstring stemp = wstring(pasujace_produkty[odpowiedz].link_url.begin(), pasujace_produkty[odpowiedz].link_url.end());
 		LPCWSTR otwieracz = stemp.c_str();
 		ShellExecute(0, 0, otwieracz, 0, 0, SW_SHOW);	//otworzenie przegladarki
