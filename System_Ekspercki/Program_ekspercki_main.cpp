@@ -57,7 +57,9 @@ int main(){
 	cout << "Cechy, ktore wybrales: "<<endl;
 	podsumuj_cechy(baza_cech_klienta);
 	cout << endl << endl;
-	cout << "Produkty, ktore spelniaja Twoje wymagania:" << endl;
+	cout << "Zostanie Ci teraz przedstawiona lista produktow, ktore spelniaja" << endl;
+	cout << "twoje oczekiwania, wraz z linkami do strony internetowej z nimi." << endl;
+	
 
 	znajdz_produkty(baza_cech_klienta, baza_produktow);
 
