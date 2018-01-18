@@ -34,7 +34,7 @@ int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech, const Baza_cech &baza_c
 	return odpowiedz;
 };
 
-void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech cala_Baza_cech, const Baza_cech &baza_cech_klienta){
+void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech &cala_Baza_cech, const Baza_cech &baza_cech_klienta){
 	int ilosc_cech = baza_cech_klienta[nr_kategorii].size();
 	if (ilosc_cech==0){
 		cout << "Jeszcze nic nie wybrano z tej kategorii";
@@ -153,6 +153,29 @@ void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_c
 	//vector<string>::iterator iter = find(baza_cech_klienta.begin(), baza_cech_klienta.end(), napis);
 	//baza_cech_klienta.erase(remove(baza_cech_klienta.begin(), baza_cech_klienta.end(), cala_Baza_cech[numer_kategorii][odpowiedz]), baza_cech_klienta.end());
 
+
+}
+
+
+void znajdz_produkty(const Baza_cech &cala_Baza_cech, Baza_cech &baza_cech_klienta,
+														const Baza_produktow &baza_produktow){
+	
+	//lecimy po ca³ej bazie danych, 
+	int ilosc_kategorii = cala_Baza_cech.size();
+	for (int i = 0; i < ilosc_kategorii; i++){
+		int ilosc_cech = cala_Baza_cech[i].size();
+		for (int j = 0; j < ilosc_cech; j++){
+			vector<Cecha>::iterator it1 = baza_cech_klienta[i].begin();
+			vector<Cecha>::iterator it2 = baza_cech_klienta[i].end();
+			string napis = cala_Baza_cech[i][j].cecha;
+			vector<Cecha>::iterator it3;
+			it3 = find(it1, it2, napis);
+			Cecha pozadana=*it3;
+			if (cala_Baza_cech[i][j].id_cechy == pozadana.id_cechy){
+
+			}
+		}
+	}
 
 }
 

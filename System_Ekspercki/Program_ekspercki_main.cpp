@@ -7,9 +7,9 @@
 using namespace std;
 
 int main(){
-	const Baza_cech cala_Baza_cech(false);
+	Baza_cech cala_Baza_cech(false);
 	Baza_cech baza_cech_klienta;
-
+	Baza_produktow baza_produktow;
 
 
 
@@ -50,6 +50,8 @@ int main(){
 		odpowiedz_kategoria = wybierz_rodzaj_cechy(cala_Baza_cech, baza_cech_klienta);
 		odpowiedz_kategoria--;
 	} ;
+
+	//znajdz_produkty(cala_Baza_cech, baza_cech_klienta, baza_produktow);
 
 	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
 

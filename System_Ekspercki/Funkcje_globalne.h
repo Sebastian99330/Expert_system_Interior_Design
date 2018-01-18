@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Baza_produktow.h"
 #include "Baza_cech.h"
 
 using namespace std;
@@ -34,6 +35,8 @@ bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_cech &cala_
 
 void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_cech, Baza_cech &Baza_cech_klienta);
 
-void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech cala_Baza_cech, const Baza_cech &baza_cech_klienta);
+void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech &cala_Baza_cech, const Baza_cech &baza_cech_klienta);
+
+void znajdz_produkty(const Baza_cech &cala_Baza_cech, Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow);
 
 #endif Funkcje_globalne_h
