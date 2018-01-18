@@ -37,6 +37,6 @@ void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_c
 
 void wypisz_wybrane_cechy(int nr_kategorii, const Baza_cech &cala_Baza_cech, const Baza_cech &baza_cech_klienta);
 
-void znajdz_produkty(const Baza_cech &cala_Baza_cech, Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow);
+void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow);
 
 #endif Funkcje_globalne_h

@@ -51,9 +51,10 @@ int main(){
 		odpowiedz_kategoria--;
 	} ;
 
-	//znajdz_produkty(cala_Baza_cech, baza_cech_klienta, baza_produktow);
+	
 
-	cout << endl<<endl<< "Dziekuje! Wybrales 0. Pozdrawiam!";
+	cout << endl << endl << "Dziekuje! Zakonczono wybor."<<endl<<endl;
+	znajdz_produkty(baza_cech_klienta, baza_produktow);
 
 	//ShellExecute(0, 0, L"http://www.google.com", 0, 0, SW_SHOW);	//otworzenie przegladarki
 

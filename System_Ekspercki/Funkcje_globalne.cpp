@@ -157,24 +157,39 @@ void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_c
 }
 
 
-void znajdz_produkty(const Baza_cech &cala_Baza_cech, Baza_cech &baza_cech_klienta,
-														const Baza_produktow &baza_produktow){
+void znajdz_produkty(Baza_cech &baza_cech_klienta,const Baza_produktow &baza_produktow){
 	
-	//lecimy po ca³ej bazie danych, 
-	int ilosc_kategorii = cala_Baza_cech.size();
+	//lecimy po ca³ej bazie danych
+	int ilosc_kategorii = baza_cech_klienta.size();
 	for (int i = 0; i < ilosc_kategorii; i++){
-		int ilosc_cech = cala_Baza_cech[i].size();
-		for (int j = 0; j < ilosc_cech; j++){
-			vector<Cecha>::iterator it1 = baza_cech_klienta[i].begin();
-			vector<Cecha>::iterator it2 = baza_cech_klienta[i].end();
-			string napis = cala_Baza_cech[i][j].cecha;
-			vector<Cecha>::iterator it3;
-			it3 = find(it1, it2, napis);
-			Cecha pozadana=*it3;
-			if (cala_Baza_cech[i][j].id_cechy == pozadana.id_cechy){
-
-			}
+		int ilosc_cech = baza_cech_klienta[i].size();
+		if (ilosc_cech == 0){
+			continue;
 		}
+		for (int j = 0; j < ilosc_cech; j++){
+			
+			if (j == 0){
+				switch (i)
+				{
+				case 0: cout << "Kolor: "; break;
+				case 1: cout << "Material: "; break;
+				case 2: cout << "Firma: "; break;
+				case 3: cout << "Cena: "; break;
+				case 4: cout << "Kraj pochodzenia: "; break;
+				case 5: cout << "Wiekosc plytki: "; break;
+				default:
+					break;
+				}
+			}
+			cout << baza_cech_klienta[i][j].cecha;
+			//nie chcemy wypisywaæ przecinka po ostatnim elemencie
+			int indeks_ostatniego_elementu = baza_cech_klienta[i].size() - 1;
+			if (j != indeks_ostatniego_elementu){
+				cout << ", ";
+			}
+			
+		}
+		cout << endl;
 	}
 
 }
