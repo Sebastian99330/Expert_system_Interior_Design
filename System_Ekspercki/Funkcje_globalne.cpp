@@ -121,10 +121,10 @@ bool czy_cecha_dodana(int numer_kategorii, int odpowiedz, const Baza_cech &cala_
 	//tak naprawdê zmienna zbêdna ale zostawiam dla przejrzystoœci kodu
 	bool czy_dodana = false;
 
-	//przeszukamy po ca³ym wektorze klienta w poszukiwaniu tej cechy, któr¹ chce on dodaæ do swoich upodobañ
+	//przeszukamy po ca³ym wektor_produktowze klienta w poszukiwaniu tej cechy, któr¹ chce on dodaæ do swoich upodobañ
 	int ilosc_cech = baza_cech_klienta[numer_kategorii].size();
 	for (int i = 0; i < ilosc_cech; i++){
-		//jeœli ten element w wektorze który na którym teraz aktualnie jesteœmy, 
+		//jeœli ten element w wektor_produktowze który na którym teraz aktualnie jesteœmy, 
 		//jest identyczny jak ten który klient chce dodaæ, to znaczy ¿e by³ ju¿ wczeœniej dodany.
 		if (cala_Baza_cech[numer_kategorii][odpowiedz].id_cechy == baza_cech_klienta[numer_kategorii][i].id_cechy){
 			czy_dodana = true;
@@ -196,7 +196,7 @@ void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 }
 
 void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow){
-	vector<Produkt> wektor;
+	vector<Produkt> wektor_produktow;
 
 	cout << endl;
 	int ilosc_produktow = baza_produktow.size();
@@ -209,25 +209,27 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 		}
 		for (int j = 0; j < ilosc_cech; j++){
 
-			if (baza_produktow[0].id_koloru == baza_cech_klienta[i][j].id_cechy){
-				cout << licznik++ << ". " << baza_produktow.p1.nazwa_produktu << endl;
-				cout<< "Link do przegladarki internetowej: "<< baza_produktow.p1.link_url << endl;
-				string link = baza_produktow.p1.link_url;
-
-				//konwersja stringu - napisu url, 
-				//do formatu potrzebnego to otworzenia przegladarki
-				wstring stemp = wstring(link.begin(), link.end());
-				LPCWSTR sw = stemp.c_str();
+			for (int k = 0; j < ilosc_produktow; j++){
+				if (baza_produktow[k].id_koloru == baza_cech_klienta[i][j].id_cechy){
+					cout << licznik++ << ". " << baza_produktow.p1.nazwa_produktu << endl;
+					cout<< "Link do przegladarki internetowej: "<< baza_produktow.p1.link_url << endl;
+					string link = baza_produktow.p1.link_url;
+					wektor_produktow.push_back(baza_produktow[k]);
+					//konwersja stringu - napisu url, 
+					//do formatu potrzebnego to otworzenia przegladarki
+					wstring stemp = wstring(link.begin(), link.end());
+					LPCWSTR sw = stemp.c_str();
 				
-				cout << "Czy chcesz teraz otworzyc produkt w przegladarce internetowej?" << endl;
-				cout << "Wpisz 0 jesli nie, 1 jesli tak:";
-				int odpowiedz=kontrola_poprawnosci_danych(0, 1);
-				if (odpowiedz == 1){
-					ShellExecute(0, 0, sw, 0, 0, SW_SHOW);	//otworzenie przegladarki
+					cout << "Czy chcesz teraz otworzyc produkt w przegladarce internetowej?" << endl;
+					cout << "Wpisz 0 jesli nie, 1 jesli tak:";
+					int odpowiedz=kontrola_poprawnosci_danych(0, 1);
+					if (odpowiedz == 1){
+						ShellExecute(0, 0, sw, 0, 0, SW_SHOW);	//otworzenie przegladarki
+					}
+				
+					wektor_produktow.push_back(baza_produktow.p1);
+
 				}
-				
-				wektor.push_back(baza_produktow.p1);
-
 			}
 		}
 	}
