@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <algorithm> //dla usuwania elementów z vectora
+#include <windows.h>
 #include "Funkcje_globalne.h"
 
 using namespace std;
@@ -157,7 +158,7 @@ void usun_ceche(int numer_kategorii, int odpowiedz, const Baza_cech &cala_Baza_c
 }
 
 
-void znajdz_produkty(Baza_cech &baza_cech_klienta,const Baza_produktow &baza_produktow){
+void podsumuj_cechy(Baza_cech &baza_cech_klienta){
 	
 	//lecimy po ca³ej bazie danych
 	int ilosc_kategorii = baza_cech_klienta.size();
@@ -193,5 +194,41 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta,const Baza_produktow &baza_pro
 	}
 
 }
+
+void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_produktow){
+	cout << endl;
+	int licznik = 1;
+	int ilosc_kategorii = baza_cech_klienta.size();
+	for (int i = 0; i < ilosc_kategorii; i++){
+		int ilosc_cech = baza_cech_klienta[i].size();
+		if (ilosc_cech == 0){
+			continue;
+		}
+		for (int j = 0; j < ilosc_cech; j++){
+			if (baza_produktow.p1.id_koloru == baza_cech_klienta[i][j].id_cechy){
+				cout << licznik++ << ". " << baza_produktow.p1.link_url << endl;
+				string link = baza_produktow.p1.link_url;
+
+				//konwersja stringu - napisu url, 
+				//do formatu potrzebnego to otworzenia przegladarki
+				wstring stemp = wstring(link.begin(), link.end());
+				LPCWSTR sw = stemp.c_str();
+				
+				cout << "Czy chcesz teraz otworzyc produkt w przegladarce internetowej?" << endl;
+				cout << "Wpisz 0 jesli nie, 1 jesli tak:";
+				int odpowiedz=kontrola_poprawnosci_danych(0, 1);
+				if (odpowiedz == 1){
+					ShellExecute(0, 0, sw, 0, 0, SW_SHOW);	//otworzenie przegladarki
+				}
+				
+				
+
+			}
+		}
+	}
+
+
+}
+
 
 #endif Funkcje_globalne_cpp

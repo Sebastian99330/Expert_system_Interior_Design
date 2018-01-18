@@ -54,10 +54,17 @@ int main(){
 	
 
 	cout << endl << endl << "Dziekuje! Zakonczono wybor."<<endl<<endl;
+	cout << "Cechy, ktore wybrales: "<<endl;
+	podsumuj_cechy(baza_cech_klienta);
+	cout << endl << endl;
+	cout << "Produkty, ktore spelniaja Twoje wymagania:" << endl;
+
 	znajdz_produkty(baza_cech_klienta, baza_produktow);
 
 	//ShellExecute(0, 0, L"http://www.google.com", 0, 0, SW_SHOW);	//otworzenie przegladarki
 
 	cout << endl << endl << "Koniec programu." << endl;
+	cout << "Nacisnij enter, aby wylaczyc program." << endl;
+	getchar();
 	return 0;
 }
