@@ -29,7 +29,7 @@ int wybierz_rodzaj_cechy(const Baza_cech cala_Baza_cech, const Baza_cech &baza_c
 	cout << "6 - Wielkosc plytki" << "\t\t\t("; wypisz_wybrane_cechy(5, cala_Baza_cech, baza_cech_klienta);
 	cout << ")" << endl;
 	cout << "Wpisz liczbe 0, aby zakonczyc wprowadzanie." << endl;
-	cout << "Wprowadz cyfre (od 0 do "<<cala_Baza_cech.size()<<") odpowiadajaca parametrowi, ktory chcesz podac: " << endl;
+	cout << "Wprowadz cyfre (od 0 do "<<cala_Baza_cech.size()<<") odpowiadajaca parametrowi, ktory chcesz podac: ";
 	odpowiedz=kontrola_poprawnosci_danych(0, 6);
 	return odpowiedz;
 };
@@ -266,7 +266,7 @@ void znajdz_produkty(Baza_cech &baza_cech_klienta, const Baza_produktow &baza_pr
 					//to wypisujemy nazwê produktu i link url
 					cout << licznik++ << ". " << baza_produktow[k].nazwa_produktu << endl;
 					cout<< "Link do przegladarki internetowej: "<< baza_produktow[k].link_url << endl;
-					//i dodajemy ten produkt do wektora produktów, które pasuj¹ klientowi
+					//dodajemy ten produkt do wektora produktów, które pasuj¹ klientowi
 					pasujace_produkty.push_back(baza_produktow[k]);
 
 				}

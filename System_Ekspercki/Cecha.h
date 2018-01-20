@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+//Klasa pojedynczej cechy, czyli np. BIA£EGO koloru.
 class Cecha
 {
 public:
